@@ -310,10 +310,7 @@ impl LsmStorageInner {
         let mut memtable_approximate_size: usize;
         {
             let state = self.state.read();
-            let res = state.memtable.put(key, value);
-            if res.is_err() {
-                return res;
-            }
+            state.memtable.put(key, value)?;
             memtable_approximate_size = state.memtable.approximate_size();
         }
         if memtable_approximate_size >= self.options.target_sst_size {

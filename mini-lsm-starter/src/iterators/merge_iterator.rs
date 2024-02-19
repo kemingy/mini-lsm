@@ -4,7 +4,6 @@
 use std::cmp::{self};
 use std::collections::binary_heap::PeekMut;
 use std::collections::BinaryHeap;
-use std::thread::current;
 
 use anyhow::{Ok, Result};
 

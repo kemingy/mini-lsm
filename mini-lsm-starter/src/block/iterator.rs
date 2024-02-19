@@ -3,7 +3,7 @@
 
 use std::sync::Arc;
 
-use bytes::{Buf, Bytes};
+use bytes::Buf;
 
 use crate::key::{KeySlice, KeyVec};
 
@@ -86,12 +86,6 @@ impl BlockIterator {
         self.key.append(&entry[..key_len]);
         let value_len = (&self.block.data[value_left..]).get_u16() as usize;
         self.value_range = (value_left + 2, value_left + 2 + value_len);
-        println!(
-            "idx({}) => key: {:?}, value: {:?}",
-            self.idx,
-            Bytes::copy_from_slice(self.key().raw_ref()),
-            Bytes::copy_from_slice(self.value())
-        );
     }
 
     /// Move to the next key in the block.

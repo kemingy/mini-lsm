@@ -2,7 +2,6 @@
 #![allow(dead_code)] // TODO(you): remove this lint after implementing this mod
 
 use anyhow::{bail, Ok, Result};
-use bytes::Bytes;
 
 use crate::{
     iterators::{merge_iterator::MergeIterator, StorageIterator},
